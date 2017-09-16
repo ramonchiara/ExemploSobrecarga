@@ -18,35 +18,61 @@ namespace ExemploSobrecarga
         {
         }
 
-        public string GetNome()
+        public string Nome
         {
-            return nome;
+            get
+            {
+                {
+                    return nome;
+                }
+            }
         }
 
-        public void SetP1(double p1)
+        public double P1
         {
-            this.p1 = p1;
+            set
+            {
+                this.p1 = value;
+            }
         }
 
-        public void SetP2(double p2)
+        public double P2
         {
-            this.p2 = p2;
+            set
+            {
+                this.p2 = value;
+            }
         }
 
-        public double GetMedia()
+        public double Media
         {
-            return (p1 + p2) / 2;
+            get
+            {
+                return (p1 + p2) / 2;
+            }
         }
+
+        // ATENÇÃO: não podemos sobrecarregar propriedades!
 
         public bool GetAprovado()
         {
-            double media = GetMedia();
+            double media = Media;
             return GetAprovado(media);
         }
 
         public bool GetAprovado(double media)
         {
             return media >= 6;
+        }
+
+        // Podemos até manter a propriedade abaixo, mas não é uma sobrecarga!
+
+        public bool Aprovado
+        {
+            get
+            {
+                return Media >= 6.0;
+            }
         }
     }
 }
